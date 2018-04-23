@@ -1,0 +1,14 @@
+footer {
+    padding: 3.2rem;
+    border-top: 1px solid #919191;
+}
+
+.footer__links {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (min-width: $desktop-breakpoint) {
+
+}
