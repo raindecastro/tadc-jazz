@@ -10,10 +10,12 @@ import Footer from '../components/Footer';
 import Team from '../components/Team';
 import Coaches from '../components/Coaches';
 import About from '../components/About';
+import SideBar from '../components/Sidebar';
 
 const AppRouter = () => (
     <BrowserRouter>
         <div className="site">
+            <SideBar noOverlay />
             <Header/>
             <div className="content">
                 <Switch>
