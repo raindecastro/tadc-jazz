@@ -15,7 +15,7 @@ import SideBar from '../components/Sidebar';
 const AppRouter = () => (
     <BrowserRouter>
         <div className="site">
-            <SideBar noOverlay />
+            <SideBar />
             <Header/>
             <div className="content">
                 <Switch>
