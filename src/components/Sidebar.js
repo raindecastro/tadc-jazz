@@ -38,13 +38,13 @@ export default class SideBar extends React.Component {
         }>Logo</a>
         <a id="about" className="menu-item" onClick={() => 
             {
-                scroll.scrollTo(740)
+                scroll.scrollTo(640)
                 this.closeMenu();
             }
         }>About</a>
         <a id="team" className="menu-item" onClick={() => 
             {
-                scroll.scrollTo(1480)
+                scroll.scrollTo(1280)
                 this.closeMenu();
             }
         }>Team</a>
