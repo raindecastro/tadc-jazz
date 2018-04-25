@@ -101,17 +101,6 @@ export default class SideBar extends React.Component {
                 <Link 
                     activeClass="active"
                     className="menu-item"
-                    to="team"
-                    spy={true}
-                    smooth={true}
-                    duration={1000}
-                    onClick={() => this.closeMenu()}
-                >
-                    Photos
-                </Link>
-                <Link 
-                    activeClass="active"
-                    className="menu-item"
                     to="coach"
                     spy={true}
                     smooth={true}
@@ -119,6 +108,17 @@ export default class SideBar extends React.Component {
                     onClick={() => this.closeMenu()}
                 >
                     Coach
+                </Link>
+                <Link 
+                    activeClass="active"
+                    className="menu-item"
+                    to="team"
+                    spy={true}
+                    smooth={true}
+                    duration={1000}
+                    onClick={() => this.closeMenu()}
+                >
+                    Photos
                 </Link>
                 </Menu>
                 <header className="header">
@@ -133,9 +133,9 @@ export default class SideBar extends React.Component {
                 <div name="coach" className="image3__container">
                     <h1 className="welcome__header">coaches</h1>
                     <div className="coaches__container">
-                        <p>Sue</p>
+                        <p>susan justimbaste-decena</p>
                         <img className="coach__image" src={sue1} />
-                        <p>Chris</p>
+                        <p>chris nocon</p>
                         <img className="coach__image" src={chris1} />
                     </div>
                 </div>
