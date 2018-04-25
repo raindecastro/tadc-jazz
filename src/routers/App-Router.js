@@ -16,22 +16,23 @@ const AppRouter = () => (
     <BrowserRouter>
         <div className="site">
             <SideBar />
-            <Header/>
             <div className="content">
                 <Switch>
-                    <Route path="/" component={Home} exact={true} />
+                    <Route path="/home" component={Home} exact={true} />
                     <Route path="/about/" component={About} exact={true} />
                     <Route path="/coaches/" component={Coaches} exact={true} />
                     <Route path="/coaches/:name" component={Album} exact={true} />
                     <Route path="/team/" component={Team} exact={true} />
                     <Route path="/team/:name" component={Album} exact={true}/>
                     <Route path="/contact" component={Contact} exact={true}/>
-                    <Route component={NotFoundPage} exact={true}/>
+                    
                 </Switch>
             </div>
             <Footer/>
         </div>
     </BrowserRouter>
 );
+
+// <Route component={NotFoundPage} exact={true}/>
 
 export default AppRouter;

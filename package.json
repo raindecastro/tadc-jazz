@@ -8,7 +8,7 @@
     "node": "8.11.1"
   },
   "scripts": {
-    "live": "webpack-dev-server --mode development",
+    "live": "webpack-dev-server --mode development  --host 192.168.1.9",
     "dev": "webpack --watch --mode development",
     "build": "webpack --mode production",
     "start": "node server/server.js",

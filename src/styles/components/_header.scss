@@ -7,11 +7,14 @@
 //     margin-bottom: 0;
 // }
 
-.header {
+
+//iphone
+@media (min-height: 520px) {
+    .header {
     display: flex;
     justify-content: center;
     align-items: center;  
-    min-height: 640px;
+    min-height: 670px;
 }
 
 .main__container {
@@ -23,8 +26,8 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;  
-    min-height: 640px;
-    background-color: #d3dddc;
+    min-height: 670px;
+    background-color: #fdd262;
 }
 
 .welcome__header {
@@ -52,8 +55,17 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;  
-    min-height: 640px;
+    min-height: 670px;
     background-color: #446455;
+}
+
+.image2__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;  
+    min-height: 670px;
+    background-color: #d3dddc;
 }
 
 .image1 {
@@ -94,33 +106,34 @@
     max-height: 50%;
     width: 40%;
 }
-
-@media (min-width: $desktop-breakpoint) {
-
-    .header__links__container {
-        padding-bottom: $l-size;
-        width: 50%;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .header__link {
-        color: #919191;
-        -o-transition:.5s;
-        -ms-transition:.5s;
-        -moz-transition:.5s;
-        -webkit-transition:.5s;
-        transition:.5s;
-    }
-    
-    .header__link:hover {
-        color: #444444;
-    }
-    
-    
-    .logo {
-        max-height: 50%;
-        width: 300px;
-    }
 }
+
+// @media (min-width: $desktop-breakpoint) {
+
+//     .header__links__container {
+//         padding-bottom: $l-size;
+//         width: 50%;
+//         display: flex;
+//         justify-content: space-between;
+//     }
+    
+//     .header__link {
+//         color: #919191;
+//         -o-transition:.5s;
+//         -ms-transition:.5s;
+//         -moz-transition:.5s;
+//         -webkit-transition:.5s;
+//         transition:.5s;
+//     }
+    
+//     .header__link:hover {
+//         color: #444444;
+//     }
+    
+    
+//     .logo {
+//         max-height: 50%;
+//         width: 300px;
+//     }
+// }
 
