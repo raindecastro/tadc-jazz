@@ -11,19 +11,21 @@ import Team from '../components/Team';
 import Coaches from '../components/Coaches';
 import About from '../components/About';
 import SideBar from '../components/Sidebar';
+import Kyle from '../components/Kyle';
+import kyle from '../../dist/img/Kyle.jpg';
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
         <div className="site">
-            <SideBar />
             <div className="content">
                 <Switch>
+                    <Route path="/" component={SideBar} exact={true} />
                     <Route path="/home" component={Home} exact={true} />
                     <Route path="/about/" component={About} exact={true} />
                     <Route path="/coaches/" component={Coaches} exact={true} />
                     <Route path="/coaches/:name" component={Album} exact={true} />
                     <Route path="/team/" component={Team} exact={true} />
-                    <Route path="/team/:name" component={Album} exact={true}/>
+                    <Route path="/team/kyle" component={Kyle} exact={true} />
                     <Route path="/contact" component={Contact} exact={true}/>
                     
                 </Switch>

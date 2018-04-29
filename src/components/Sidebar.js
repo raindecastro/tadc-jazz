@@ -1,25 +1,38 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { NavLink } from 'react-router-dom';
 import logo from '../../dist/img/logo.png';
 import image1 from '../../dist/img/image1.jpg';
 import image2 from '../../dist/img/image2.jpg';
 import sue1 from '../../dist/img/sue1.png';
 import chris1 from '../../dist/img/chris1.png';
+import SueModal from '../components/SueModal';
+import ChrisModal from '../components/ChrisModal';
+import logo2 from '../../dist/img/logo2.png';
+import SecondBlock from '../components/SecondBlock';
 
 export default class SideBar extends React.Component {
         
     state = {
-        menuOpen: false 
+        menuOpen: false,
+        sueIsOpen: false,
+        chrisIsOpen: false,
+        iconVisible: {
+            visibility: 'visible'
+        },
+        customBurgerIcon: undefined
     };
+    
     //Menu
     closeMenu () {
         this.setState({menuOpen: false})
-    }
+    };
 
     handleStateChange (state) {
         this.setState({menuOpen: state.isOpen})  
-    }
+    };
+
     //Scroller
     componentDidMount() {
 
@@ -31,11 +44,13 @@ export default class SideBar extends React.Component {
           console.log("end", arguments);
         });
     
-      }
-      scrollToTop() {
+    };
+
+    scrollToTop() {
         scroll.scrollToTop();
-      }
-      scrollTo() {
+    };
+
+    scrollTo() {
         scroller.scrollTo('scroll-to-element', {
           duration: 800,
           delay: 0,
@@ -43,8 +58,9 @@ export default class SideBar extends React.Component {
           containerId: 'ContainerElementID'
         })
         console.log('should scroll')
-      }
-      scrollToWithContainer() {
+    };
+
+    scrollToWithContainer() {
     
         let goToContainer = new Promise((resolve, reject) => {
     
@@ -59,27 +75,58 @@ export default class SideBar extends React.Component {
             smooth: 'easeInOutQuart'
           });
     
-        });
+    });
     
-        goToContainer.then(() =>
-          scroller.scrollTo('scroll-container-second-element', {
+    goToContainer.then(() =>
+        scroller.scrollTo('scroll-container-second-element', {
             duration: 800,
             delay: 0,
             smooth: 'easeInOutQuart',
             containerId: 'scroll-container'
           }));
-      }
-      componentWillUnmount() {
+    };
+
+    componentWillUnmount() {
         Events.scrollEvent.remove('begin');
         Events.scrollEvent.remove('end');
-      }
+    };
+
+    openModal(person) {
+        console.log(person)
+        if(person === 'sue') {
+            this.setState({sueIsOpen: true});
+        } else if(person === 'chris') {
+            this.setState({chrisIsOpen: true});
+        } 
+    };
+
+    afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        this.subtitle.style.color = '#f00';
+    };
+
+    closeModal = () => {
+        this.setState(() => ({sueIsOpen: false, chrisIsOpen: false}));
+    };
+
+    hideMenuIcon = () => {
+        this.setState(() => ({ customBurgerIcon: false }));
+    };
+
+    showMenuIcon = () => {
+          this.setState(() => ({ customBurgerIcon: undefined }));
+    };
 
     render () {
         return (
             <div>
+                <div className="app-header">
                 <Menu 
                     isOpen={this.state.menuOpen}
                     onStateChange={(state) => this.handleStateChange(state)}
+                    burgerButtonClassName={ "menu__button" }
+                    customBurgerIcon={this.state.customBurgerIcon}
+                    width={ '45%' }
                 >
                 <a id="logo" className="menu-item" onClick={() => 
                     {
@@ -118,34 +165,86 @@ export default class SideBar extends React.Component {
                     duration={1000}
                     onClick={() => this.closeMenu()}
                 >
-                    Photos
+                    Talents
+                </Link>
+                <Link 
+                    activeClass="active"
+                    className="menu-item"
+                    to="team"
+                    spy={true}
+                    smooth={true}
+                    duration={1000}
+                    onClick={() => this.closeMenu()}
+                >
+                    Media
                 </Link>
                 </Menu>
-                <header className="header">
-                    <img className="logo" src={logo} />
-                </header>
-                <div name="about" className="main__container">
-                    <div className="welcome">
-                        <h1 className="welcome__header">Welcome</h1>
-                        <p className="welcome__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum, purus vitae eleifend venenatis, ipsum arcu mollis orci, vel bibendum eros nulla nec urna. Phasellus ac tincidunt arcu. Aliquam ut facilisis nunc, at laoreet magna. Morbi a vulputate elit. Nullam sed velit eros. Vestibulum tellus urna, porta vel hendrerit placerat, porttitor ultricies ante. Mauris nec dolor in lacus consequat viverra. Vivamus rhoncus dolor diam, eu rutrum quam rhoncus quis. Sed molestie risus nec semper luctus. Pellentesque eu consequat lectus, auctor consectetur metus. Duis cursus est elit, ac posuere risus efficitur sed. Aliquam gravida varius dui ac luctus. Etiam ut elementum mauris, eu suscipit libero. Sed vitae placerat odio, at auctor diam.</p>
-                    </div>
-                </div>
-                <div name="coach" className="image3__container">
-                    <h1 className="welcome__header">coaches</h1>
-                    <div className="coaches__container">
-                        <p>susan justimbaste-decena</p>
-                        <img className="coach__image" src={sue1} />
-                        <p>chris nocon</p>
-                        <img className="coach__image" src={chris1} />
-                    </div>
-                </div>
-                <div name="team" className="image1__container">
-                    <img className="image1" src={image1} />
-                </div>
-                <div name="team" className="image2__container">
-                    <img className="image1" src={image2} />
+                <div className="app-header__logo__container">
+                    <img className="app-header__logo" src={logo2} />
+                </div>  
                 </div>
                 
+
+                <div className="left-body">
+                    <div className="first-block">
+                        <h1 className="first-block__message">LIVE BREATHE DANCE</h1>
+                        <Link 
+                            to="second"
+                            spy={true}
+                            smooth={true}
+                            duration={1000}
+                            offset={-100} 
+                        >
+                        <div className="arrow"></div>
+                    </Link>
+                    </div>
+                </div>
+
+                <div className="right-body">
+                    <div name="second">
+                        <SecondBlock />
+                    </div>
+                   
+
+                    <div name="coach" className="image3__container">
+                        <h1 className="welcome__header">coaches</h1>
+                        <div className="coaches__container">
+                            <p>susan justimbaste-decena</p>
+                            <img onClick={() => {
+                                this.openModal('sue');
+                                this.hideMenuIcon();
+                            }} className="coach__image" src={sue1} />
+                            <p>chris nocon</p>
+                            <img onClick={() => {
+                                this.hideMenuIcon();
+                                this.openModal('chris')
+                            }} className="coach__image" src={chris1} />
+                        </div>
+                    </div>
+
+                    <div name="team" className="image1__container">
+                        <NavLink to="/team" className="image1__link" activeClassName="is-active" exact={true}>
+                            <img className="image1" src={image1} />
+                        </NavLink>
+                    </div>
+
+                    <div name="team" className="image2__container">
+                        <img className="image1" src={image2} />
+                        <img className="image1" src={image2} />
+                        <img className="image1" src={image2} />
+                    </div>
+                </div>
+
+                <SueModal 
+                    isOpen={this.state.sueIsOpen}
+                    closeModal={this.closeModal}
+                    showMenuIcon={this.showMenuIcon}
+                />
+                <ChrisModal 
+                    isOpen={this.state.chrisIsOpen}
+                    closeModal={this.closeModal}
+                    showMenuIcon={this.showMenuIcon}
+                />
             </div>
     );
   }

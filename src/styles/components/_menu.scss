@@ -1,7 +1,9 @@
 /* Position and sizing of burger button */
 .menu-item {
-    color: white;
+    color: black;
     padding: $s-size;
+    text-transform: uppercase;
+    font-family: 'Oswald';
 }
 
 .bm-burger-button {
@@ -11,10 +13,10 @@
     left: 36px;
     top: 36px;
   }
-  
+
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: black;
+    background: white;
   }
   
   /* Position and sizing of clickable cross button */
@@ -25,12 +27,12 @@
   
   /* Color/shape of close button cross */
   .bm-cross {
-    background: #bdc3c7;
+    background: black;
   }
   
   /* General sidebar styles */
   .bm-menu {
-    background: #373a47;
+    background: white;
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
     overflow: hidden !important;

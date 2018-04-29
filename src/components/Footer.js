@@ -11,9 +11,18 @@ const twitterURL = "https://twitter.com/tadcph?lang=en";
 const Footer = () => (
     <footer>   
         <div className="footer__links">
-            <a href={tadcURL}><img src={facebookLogo} /></a>
-            <img src={instagramLogo} href={instaURL} />
-            <img src={twitterLogo} href={twitterURL} />
+            <div className="links__container">
+                <a href={tadcURL}><img className="links__logo" height="30px" width="30px" src={`/${facebookLogo}`} /></a>
+                <p>facebook</p>
+            </div>
+            <div className="links__container">
+                <a  href={instaURL} ><img className="links__logo" height="30px" width="30px" src={`/${instagramLogo}`} /></a>
+                <p>instagram</p>
+                </div>
+            <div className="links__container">
+                <a href={twitterURL}><img className="links__logo" height="30px" width="30px" src={`/${twitterLogo}`} /></a>
+                <p>twitter</p>
+            </div>  
         </div>
     </footer>
 );

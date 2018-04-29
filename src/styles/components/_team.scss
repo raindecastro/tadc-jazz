@@ -1,0 +1,26 @@
+.talents__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.talents__images {
+    padding-bottom: $l-size;
+}
+
+.talent__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.talents__header {
+    font-family: 'Exo';
+    font-style: thin italic;
+}
+
+.talent__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

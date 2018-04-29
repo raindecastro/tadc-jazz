@@ -1,14 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import kyle from '../../dist/img/Kyle.jpg';
+import Burger from '../components/Burger';
 
-const Team = () => (
-    <div>
-        <h1>Portfolio</h1>
-        <p>Check out my work!</p>
-        <Link to="/team/1">Album 1</Link>
-        <Link to="/team/2">Album 2</Link>
-        <Link to="/team/3">Album 3</Link>
-    </div>
-);
-
-export default Team;
+export default class extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+    
+    render () {
+        return (
+            <div>
+                <Burger />
+                <div className="talents__container">
+                    <h1>Talents</h1>
+                    <Link to="/team/kyle"><img className="talents__images" src={`/${kyle}`} height="300px" width="300px" /></Link>
+                    <img className="talents__images" src={`/${kyle}`} height="300px" width="300px" />
+                    <img className="talents__images" src={`/${kyle}`} height="300px" width="300px" />
+                </div>
+            </div>
+        );
+    }
+}
