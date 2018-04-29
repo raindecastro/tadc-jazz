@@ -1,10 +1,10 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import logo from '../../dist/img/logo.png';
+
 
 const Header = () => (
     <header className="header">
-        <img className="logo" src={logo} />
+
     </header>
     
 );

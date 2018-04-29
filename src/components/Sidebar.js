@@ -2,15 +2,13 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { NavLink } from 'react-router-dom';
-import logo from '../../dist/img/logo.png';
 import image1 from '../../dist/img/image1.jpg';
 import image2 from '../../dist/img/image2.jpg';
-import sue1 from '../../dist/img/sue1.png';
-import chris1 from '../../dist/img/chris1.png';
 import SueModal from '../components/SueModal';
 import ChrisModal from '../components/ChrisModal';
 import logo2 from '../../dist/img/logo2.png';
 import SecondBlock from '../components/SecondBlock';
+import ThirdBlock from '../components/ThirdBlock';
 
 export default class SideBar extends React.Component {
         
@@ -91,7 +89,15 @@ export default class SideBar extends React.Component {
         Events.scrollEvent.remove('end');
     };
 
-    openModal(person) {
+    // openModal(person) {
+    //     console.log(person)
+    //     if(person === 'sue') {
+    //         this.setState({sueIsOpen: true});
+    //     } else if(person === 'chris') {
+    //         this.setState({chrisIsOpen: true});
+    //     } 
+    // };
+    openModal = (person) => {
         console.log(person)
         if(person === 'sue') {
             this.setState({sueIsOpen: true});
@@ -133,7 +139,7 @@ export default class SideBar extends React.Component {
                         scroll.scrollTo(0);
                         this.closeMenu();
                     }
-                }>Logo</a>
+                }>Home</a>
                 <Link 
                     activeClass="active"
                     className="menu-item"
@@ -141,6 +147,7 @@ export default class SideBar extends React.Component {
                     spy={true}
                     smooth={true}
                     duration={1000}
+                    offset={-100} 
                     onClick={() => this.closeMenu()}
                 >
                     About
@@ -148,10 +155,11 @@ export default class SideBar extends React.Component {
                 <Link 
                     activeClass="active"
                     className="menu-item"
-                    to="coach"
+                    to="third"
                     spy={true}
                     smooth={true}
                     duration={1000}
+                    offset={-100} 
                     onClick={() => this.closeMenu()}
                 >
                     Coach
@@ -163,6 +171,7 @@ export default class SideBar extends React.Component {
                     spy={true}
                     smooth={true}
                     duration={1000}
+                    offset={-100} 
                     onClick={() => this.closeMenu()}
                 >
                     Talents
@@ -180,7 +189,13 @@ export default class SideBar extends React.Component {
                 </Link>
                 </Menu>
                 <div className="app-header__logo__container">
-                    <img className="app-header__logo" src={logo2} />
+                <a className="app-header__logo" onClick={() => 
+                    {
+                        scroll.scrollTo(0);
+                        this.closeMenu();
+                    }
+                }><img className="app-header__logo" src={logo2} /></a>
+                    
                 </div>  
                 </div>
                 
@@ -206,20 +221,9 @@ export default class SideBar extends React.Component {
                     </div>
                    
 
-                    <div name="coach" className="image3__container">
-                        <h1 className="welcome__header">coaches</h1>
-                        <div className="coaches__container">
-                            <p>susan justimbaste-decena</p>
-                            <img onClick={() => {
-                                this.openModal('sue');
-                                this.hideMenuIcon();
-                            }} className="coach__image" src={sue1} />
-                            <p>chris nocon</p>
-                            <img onClick={() => {
-                                this.hideMenuIcon();
-                                this.openModal('chris')
-                            }} className="coach__image" src={chris1} />
-                        </div>
+                    <div name="third">
+                        <ThirdBlock openModal={this.openModal} hideMenuIcon={this.hideMenuIcon} />
+
                     </div>
 
                     <div name="team" className="image1__container">
@@ -234,17 +238,17 @@ export default class SideBar extends React.Component {
                         <img className="image1" src={image2} />
                     </div>
                 </div>
-
                 <SueModal 
-                    isOpen={this.state.sueIsOpen}
-                    closeModal={this.closeModal}
-                    showMenuIcon={this.showMenuIcon}
-                />
-                <ChrisModal 
-                    isOpen={this.state.chrisIsOpen}
-                    closeModal={this.closeModal}
-                    showMenuIcon={this.showMenuIcon}
-                />
+                isOpen={this.state.sueIsOpen}
+                closeModal={this.closeModal}
+                showMenuIcon={this.showMenuIcon}
+        />
+        <ChrisModal 
+                isOpen={this.state.chrisIsOpen}
+                closeModal={this.closeModal}
+                showMenuIcon={this.showMenuIcon}
+        />
+                
             </div>
     );
   }
