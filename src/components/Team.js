@@ -5,8 +5,6 @@ import mira from '../../dist/img/mira.jpg';
 import allie from '../../dist/img/allie.jpg';
 import majo from '../../dist/img/majo.jpg';
 import sofia from '../../dist/img/sofia.jpg';
-
-import kylehover from '../../dist/img/Kyle-hover.jpg';
 import Burger from '../components/Burger';
 
 export default class extends React.Component {
@@ -19,7 +17,7 @@ export default class extends React.Component {
     }
 
     hoverKyleImage = () => {
-        this.setState({kyleImage: kylehover});
+        this.setState({kyleImage: kyle});
     };
 
     leaveKyleImage = () => {
