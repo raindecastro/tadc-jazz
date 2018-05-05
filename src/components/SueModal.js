@@ -11,9 +11,9 @@ const SueModal = (props) => (
         className="modal"
         >
             <div className="modal__container">
-                <h1 className="modal__title">Sue</h1>
+                <h1 className="modal__title">Ms. Sue</h1>
                 <img className="image1" src={sue1} />
-                <p className="welcome__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum, purus vitae eleifend venenatis, ipsum arcu mollis orci, vel bibendum eros nulla nec urna. Phasellus ac tincidunt arcu. Aliquam ut facilisis nunc, at laoreet magna. Morbi a vulputate elit. Nullam sed velit eros. Vestibulum tellus urna, porta vel hendrerit placerat, porttitor ultricies ante. Mauris nec dolor in lacus consequat viverra. Vivamus rhoncus dolor diam, eu rutrum quam rhoncus quis. Sed molestie risus nec semper luctus. Pellentesque eu consequat lectus, auctor consectetur metus. Duis cursus est elit, ac posuere risus efficitur sed. Aliquam gravida varius dui ac luctus. Etiam ut elementum mauris, eu suscipit libero. Sed vitae placerat odio, at auctor diam.</p>
+                <p className="welcome__message">Ms Sue is currently a movement professor and coach for The Assumption Dance Company (Jazz) in Assumption College, Makati. She graduated from Ateneo de Davao University and finished Bachelor of Arts Major in Communcation Arts.</p>
                 <button className="modal__button" onClick={() => {
                     props.showMenuIcon()   
                     props.closeModal()

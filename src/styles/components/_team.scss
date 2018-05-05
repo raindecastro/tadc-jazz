@@ -2,25 +2,49 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: black;
+    padding-top: 80px;
 }
 
 .talents__images {
     padding-bottom: $l-size;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .talent__container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 100px;
+    background-color: black;
 }
 
 .talents__header {
-    font-family: 'Exo';
-    font-style: thin italic;
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    color:white;
 }
 
 .talent__description {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+}
+
+.talent__paragraph {
+    text-align: justify;
+    margin-left: $xl-size;
+    margin-right: $xl-size;
+    font-family: 'Quattrocento', sans-serif;
+    color: white;
+}
+
+.talent__description__elements {
+    font-family: Helvetica;
+}
+
+.talent__image {
+    max-width: 100%;
 }

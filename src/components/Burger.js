@@ -2,6 +2,7 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { NavLink } from 'react-router-dom';
+import logo2 from '../../dist/img/logo2.png';   
 
 export default class Burger extends React.Component {
     state = {
@@ -104,12 +105,11 @@ export default class Burger extends React.Component {
 
           render () {
               return (
+                <div className="app-header">
                 <Menu 
                 isOpen={this.state.menuOpen}
                 onStateChange={(state) => this.handleStateChange(state)}
-                right
-                burgerButtonClassName={ "menu__button" }
-                noOverlay
+                width={ '45%' }
                 customBurgerIcon={this.state.customBurgerIcon}
             >
             <a id="logo" className="menu-item" onClick={() => 
@@ -152,6 +152,16 @@ export default class Burger extends React.Component {
                 Photos
             </Link>
             </Menu>
+            <div className="app-header__logo__container">
+                <NavLink to="/" className="app-header__logo" onClick={() => 
+                    {
+                        
+                        this.closeMenu();
+                    }
+                }><img className="app-header__logo" src={`/${logo2}`} /></NavLink>
+                    
+                </div>  
+            </div>
               );
           }
 }

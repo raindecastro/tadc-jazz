@@ -2,7 +2,7 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { NavLink } from 'react-router-dom';
-import image1 from '../../dist/img/image1.jpg';
+import image3 from '../../dist/img/image3.jpg';
 import image2 from '../../dist/img/image2.jpg';
 import SueModal from '../components/SueModal';
 import ChrisModal from '../components/ChrisModal';
@@ -171,7 +171,6 @@ export default class SideBar extends React.Component {
                     spy={true}
                     smooth={true}
                     duration={1000}
-                    offset={-100} 
                     onClick={() => this.closeMenu()}
                 >
                     Talents
@@ -179,10 +178,11 @@ export default class SideBar extends React.Component {
                 <Link 
                     activeClass="active"
                     className="menu-item"
-                    to="team"
+                    to="media"
                     spy={true}
                     smooth={true}
                     duration={1000}
+                    offset={-100}
                     onClick={() => this.closeMenu()}
                 >
                     Media
@@ -202,7 +202,7 @@ export default class SideBar extends React.Component {
 
                 <div className="left-body">
                     <div className="first-block">
-                        <h1 className="first-block__message">LIVE BREATHE DANCE</h1>
+                        <h1 className="first-block__message">BREATHE LIVE DANCE</h1>
                         <Link 
                             to="second"
                             spy={true}
@@ -227,12 +227,14 @@ export default class SideBar extends React.Component {
                     </div>
 
                     <div name="team" className="image1__container">
+                    <h1 className="welcome__header">talents</h1>
                         <NavLink to="/team" className="image1__link" activeClassName="is-active" exact={true}>
-                            <img className="image1" src={image1} />
+                            <img className="image1" src={image3} />
                         </NavLink>
                     </div>
 
-                    <div name="team" className="image2__container">
+                    <div name="media" className="image2__container">
+                    <h1 className="welcome__header">media</h1>
                         <img className="image1" src={image2} />
                         <img className="image1" src={image2} />
                         <img className="image1" src={image2} />
